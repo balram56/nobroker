@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,8 +22,9 @@ public class AuthController {
 
     //For signUp user and save the userData in dataBase
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> createUser(
-            @Valid @RequestBody  UserDto userDto,
+            @Valid @RequestBody UserDto userDto,
             BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             String message = bindingResult.getFieldError().getDefaultMessage();
