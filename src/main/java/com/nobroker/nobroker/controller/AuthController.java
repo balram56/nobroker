@@ -1,5 +1,6 @@
 package com.nobroker.nobroker.controller;
 
+import com.nobroker.nobroker.payload.UserDto;
 import com.nobroker.nobroker.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

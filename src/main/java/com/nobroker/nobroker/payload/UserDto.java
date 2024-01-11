@@ -1,4 +1,4 @@
-package com.nobroker.nobroker.service;
+package com.nobroker.nobroker.payload;
 
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
