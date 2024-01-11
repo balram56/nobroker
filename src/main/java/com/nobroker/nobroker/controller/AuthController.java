@@ -21,8 +21,9 @@ public class AuthController {
 
     //For signUp user and save the userData in dataBase
     @PostMapping
+
     public ResponseEntity<String> createUser(
-            @Valid @RequestBody  UserDto userDto,
+            @Valid @RequestBody UserDto userDto,
             BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             String message = bindingResult.getFieldError().getDefaultMessage();
