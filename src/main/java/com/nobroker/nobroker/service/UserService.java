@@ -4,5 +4,5 @@ import com.nobroker.nobroker.payload.UserDto;
 
 public interface UserService {
 
-    public long createUser(UserDto userDto);
+    public UserDto registerUser(UserDto userDto);
 }
