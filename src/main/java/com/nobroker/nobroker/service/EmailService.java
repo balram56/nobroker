@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.nobroker.nobroker.service.EmailVerificationService.emailOtpMapping;
+
 @Service
 public class EmailService {
 
@@ -28,12 +30,12 @@ public class EmailService {
     //For send Otp on email
     public Map<String, String> sendOtpEmail(String email){
         //before i send and email generateOtp() method should be called. , once will call and generate 6 digit nuber and store in otp
-       String otp = generateOtp();
-//       //save the otp for later verification
-//        emailOtpMapping.put(email, otp);
+       String otp = generateOtp(); //generating the otp
+       //save the otp for later verification
+        emailOtpMapping.put(email, otp);//after generate otp , this otp is stored in hashMap as a temprorally basis and key value pairs
 
         //SEnd OTP the user's email
-        sendEmail(email, "OTP foe Email verification", "Your OTP is: " );
+        sendEmail(email, "OTP for Email verification", "Your OTP is: " + otp );
 
         Map<String, String> response = new HashMap<>();
         response.put("status", "success");

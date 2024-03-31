@@ -1,12 +1,11 @@
 package com.nobroker.nobroker.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "owner_plans")
@@ -34,4 +33,5 @@ public class OwnerPlan {
     private boolean showingProperty;
     @Column(name = "facebook_marketing_of_property")
     private boolean facebookMarketingOfProperty;
+
 }
