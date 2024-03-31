@@ -33,14 +33,14 @@ public class RegistrationController {
         UserDto userDtos = userService.registerUser(userDto);
 
         //once user is saved in database they generate otp required
-        //SEND OTP email for email verification
+        //SEND OTP email
         Map<String, String> response = emailService.sendOtpEmail(userDtos.getEmail());
 
         return response;
     }
 
     //for email otp verification
-    ///http://localhost:8080/api/verify-otp?email=&otp=
+    //http://localhost:8080/api/verify-otp?email=&otp=
     @PostMapping("/verify-otp")
     public Map<String, String> verifyOtp(@RequestParam String email, @RequestParam String otp){
         return emailVerificationService.verifyOtp(email, otp);
